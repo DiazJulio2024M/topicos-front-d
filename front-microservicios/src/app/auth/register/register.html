@@ -1,0 +1,26 @@
+<div class="auth-wrapper">
+  <div class="auth-card">
+
+    <h2>Registro</h2>
+    <p class="subtitle">Crea tu cuenta</p>
+
+    <form (ngSubmit)="registrar()">
+
+      <input [(ngModel)]="form.nombre" name="nombre" placeholder="Nombre completo">
+      <input [(ngModel)]="form.telefono" name="telefono" placeholder="Teléfono">
+      <input [(ngModel)]="form.correo" name="correo" placeholder="Correo electrónico">
+      <input [(ngModel)]="form.direccion" name="direccion" placeholder="Dirección">
+
+      <input [(ngModel)]="form.tipo_documento" name="td" placeholder="Tipo de documento">
+      <input [(ngModel)]="form.nro_documento" name="nd" placeholder="Nº de documento">
+
+      <button type="submit" class="auth-btn">Registrar</button>
+    </form>
+
+    <div class="auth-footer">
+      <span>¿Ya tienes cuenta?</span>
+      <a routerLink="/login">Iniciar sesión</a>
+    </div>
+
+  </div>
+</div>

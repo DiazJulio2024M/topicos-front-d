@@ -1,0 +1,39 @@
+<div class="auth-wrapper">
+
+  <div class="auth-card">
+
+    <h2>Iniciar sesión</h2>
+    <p class="subtitle">Accede a tu cuenta</p>
+
+    <form (ngSubmit)="iniciar()">
+
+      <input
+        type="text"
+        [(ngModel)]="usuario"
+        name="usuario"
+        placeholder="Usuario"
+        required
+      >
+
+      <input
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="Contraseña"
+        required
+      >
+
+      <button type="submit" class="auth-btn auth-btn-block">
+        Ingresar
+      </button>
+
+    </form>
+
+    <div class="auth-footer">
+      ¿No tienes cuenta?
+      <a routerLink="/registro">Regístrate</a>
+    </div>
+
+  </div>
+
+</div>

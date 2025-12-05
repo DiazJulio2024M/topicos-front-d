@@ -1,0 +1,47 @@
+<div class="motos-wrapper">
+
+  <!-- LISTA A LA IZQUIERDA -->
+  <div class="motos-lista">
+    <h3>Mis motocicletas</h3>
+
+    <p *ngIf="motos.length === 0">No tienes motocicletas registradas aún.</p>
+
+    <ul *ngIf="motos.length > 0">
+      <li *ngFor="let moto of motos" class="moto-item">
+
+        <strong class="moto-placa">{{ moto.placa }}</strong>
+
+        <div class="moto-info">
+          <p><b>Marca:</b> {{ moto.marca }}</p>
+          <p><b>Modelo:</b> {{ moto.modelo }}</p>
+          <p><b>Año:</b> {{ moto.anio }}</p>
+          <p><b>N° Serie:</b> {{ moto.numero_serie }}</p>
+          <p><b>Kilometraje:</b> {{ moto.kilometraje }} km</p>
+          <p><b>Color:</b> {{ moto.color }}</p>
+        </div>
+
+      </li>
+    </ul>
+
+  </div>
+
+  <!-- FORMULARIO A LA DERECHA -->
+  <div class="moto-form">
+    <h3>Registrar nueva motocicleta</h3>
+
+    <form (ngSubmit)="registrar()">
+
+      <input [(ngModel)]="form.placa" name="placa" placeholder="Placa" required>
+      <input [(ngModel)]="form.marca" name="marca" placeholder="Marca">
+      <input [(ngModel)]="form.modelo" name="modelo" placeholder="Modelo">
+
+      <input [(ngModel)]="form.anio" type="number" name="anio" placeholder="Año">
+      <input [(ngModel)]="form.numero_serie" name="numero_serie" placeholder="Número de serie">
+      <input [(ngModel)]="form.kilometraje" type="number" name="kilometraje" placeholder="Kilometraje">
+      <input [(ngModel)]="form.color" name="color" placeholder="Color">
+
+      <button class="moto-btn" type="submit">Registrar motocicleta</button>
+    </form>
+  </div>
+  
+</div>

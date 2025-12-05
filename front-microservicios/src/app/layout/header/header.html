@@ -1,0 +1,23 @@
+<header class="header">
+
+  <h1 class="logo">Front Microservicios</h1>
+
+  <nav class="menu">
+
+    @if (!usuario) {
+      <a routerLink="/login">Iniciar sesión</a>
+      <a routerLink="/registro">Registrarse</a>
+    }
+
+    @if (usuario) {
+      <span class="usuario-label">Hola, {{ usuario.nombre }}</span>
+
+      <a routerLink="/">Inicio</a>
+      <a routerLink="/motos">Motocicletas</a>
+
+      <button class="logout-btn" (click)="logout()">Cerrar sesión</button>
+    }
+
+  </nav>
+
+</header>

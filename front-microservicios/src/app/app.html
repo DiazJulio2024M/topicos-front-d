@@ -1,0 +1,7 @@
+<app-header *ngIf="!isAuthRoute"></app-header>
+
+<main class="app-main">
+  <router-outlet></router-outlet>
+</main>
+
+<app-footer *ngIf="!isAuthRoute"></app-footer>
