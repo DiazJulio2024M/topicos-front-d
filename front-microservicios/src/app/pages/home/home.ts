@@ -1,21 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { SolicitudService } from '../../services/solicitud.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink],
+  imports: [CommonModule],
   templateUrl: './home.html',
-  styleUrl: './home.css'
+  styleUrls: ['./home.css']
 })
 export class Home implements OnInit {
 
   usuario: any = null;
+  solicitudes: any[] = [];
 
   constructor(
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private solicitudService: SolicitudService
   ) {}
 
   ngOnInit(): void {
@@ -23,6 +27,29 @@ export class Home implements OnInit {
 
     if (!this.usuario) {
       this.router.navigate(['/login']);
+      return;
+    }
+
+    this.cargarSolicitudes();
+  }
+
+  cargarSolicitudes() {
+
+    if (this.usuario.tipo === 'admin') {
+
+      this.solicitudService.obtenerTodas()
+        .subscribe({
+          next: (res: any) => this.solicitudes = res,
+          error: () => this.solicitudes = []
+        });
+
+    } else {
+
+      this.solicitudService.obtenerPorCliente(this.usuario.id_cliente)
+        .subscribe({
+          next: (res: any) => this.solicitudes = res,
+          error: () => this.solicitudes = []
+        });
     }
   }
 }

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ClienteService {
 
-  private baseUrl = 'http://127.0.0.1:8000/clientes/'; // Cambia esto
+  private baseUrl = 'http://34.134.185.3:8000/clientes/'; // Cambia esto
 
   constructor(private http: HttpClient) {}
 

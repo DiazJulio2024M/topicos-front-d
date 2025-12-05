@@ -6,7 +6,7 @@
 
     <p *ngIf="motos.length === 0">No tienes motocicletas registradas aún.</p>
 
-    <ul *ngIf="motos.length > 0">
+    <ul *ngIf="motos.length > 0" class="lista-ul">
       <li *ngFor="let moto of motos" class="moto-item">
 
         <strong class="moto-placa">{{ moto.placa }}</strong>
@@ -22,7 +22,6 @@
 
       </li>
     </ul>
-
   </div>
 
   <!-- FORMULARIO A LA DERECHA -->
@@ -43,5 +42,5 @@
       <button class="moto-btn" type="submit">Registrar motocicleta</button>
     </form>
   </div>
-  
+
 </div>

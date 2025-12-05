@@ -1,10 +1,19 @@
-<section>
-  <h2>Página inicial</h2>
-  <p>
-    Esta es la vista principal. Desde aquí podrás luego llamar a tus microservicios en Kubernetes.
-  </p>
+<div class="home-wrapper">
 
-  <button routerLink="/detalle">
-    Ir a página de detalle
-  </button>
-</section>
+  <div class="solicitudes-box">
+    <h2>Mis solicitudes</h2>
+
+    <p *ngIf="solicitudes.length === 0">
+      No has registrado solicitudes aún.
+    </p>
+
+    <div *ngFor="let s of solicitudes" class="solicitud-item">
+      <h3>{{ s.descripcion_problema }}</h3>
+
+      <p><b>Prioridad:</b> {{ s.prioridad }}</p>
+      <p><b>Estado:</b> {{ s.estado }}</p>
+      <p><b>ID Moto:</b> {{ s.id_moto }}</p>
+    </div>
+  </div>
+
+</div>

@@ -22,6 +22,7 @@ export class Header implements OnInit {
   ngOnInit(): void {
     this.updateUser();
 
+    // Detecta cambios de URL y actualiza el usuario (para mostrar rol)
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => this.updateUser());

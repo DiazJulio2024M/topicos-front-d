@@ -1,0 +1,14 @@
+<div class="solicitudes-wrapper">
+  <h2>Solicitudes del sistema</h2>
+
+  <div *ngFor="let s of solicitudes" class="solicitud-card">
+
+    <h3>{{ s.descripcion_problema }}</h3>
+
+    <p><b>Cliente:</b> {{ s.id_cliente }}</p>
+    <p><b>Moto:</b> {{ s.id_moto }}</p>
+    <p><b>Prioridad:</b> {{ s.prioridad }}</p>
+    <p><b>Estado:</b> {{ s.estado }}</p>
+
+  </div>
+</div>

@@ -10,21 +10,29 @@ export class AuthService {
   constructor() {}
 
   iniciarSesion(tipo: 'admin' | 'cliente', data: any) {
-    const payload = tipo === 'admin'
-      ? {
-          tipo: 'admin',
-          usuario: 'Admin'
-        }
-      : {
-          tipo: 'cliente',
-          id_cliente: data.id,
-          nombre: data.nombre,
-          telefono: data.telefono,
-          correo: data.correo,
-          direccion: data.direccion,
-          nro_documento: data.nro_documento,
-          tipo_documento: data.tipo_documento
-        };
+
+    // ADMIN SIMULADO (NO VIENE DE BD)
+    if (tipo === 'admin') {
+      const payload = {
+        tipo: 'admin',
+        nombre: 'Admin'
+      };
+
+      localStorage.setItem(this.storageKey, JSON.stringify(payload));
+      return;
+    }
+
+    // CLIENTE NORMAL
+    const payload = {
+      tipo: 'cliente',
+      id_cliente: data.id_cliente,
+      nombre: data.nombre,
+      telefono: data.telefono,
+      correo: data.correo,
+      direccion: data.direccion,
+      nro_documento: data.nro_documento,
+      tipo_documento: data.tipo_documento
+    };
 
     localStorage.setItem(this.storageKey, JSON.stringify(payload));
   }

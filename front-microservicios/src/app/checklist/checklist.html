@@ -1,0 +1,33 @@
+<div class="form-wrapper">
+  <h2>Crear Checklist</h2>
+
+  <form (ngSubmit)="enviar()">
+
+    <label>Nivel de combustible</label>
+    <input [(ngModel)]="form.nivel_combustible" name="nivel_combustible">
+
+    <label>
+      <input type="checkbox" [(ngModel)]="form.luces" name="luces">
+      Luces en buen estado
+    </label>
+
+    <label>
+      <input type="checkbox" [(ngModel)]="form.neumaticos" name="neumaticos">
+      Neumáticos en buen estado
+    </label>
+
+    <label>
+      <input type="checkbox" [(ngModel)]="form.rayones_previos" name="rayones_previos">
+      Rayones previos
+    </label>
+
+    <label>Observaciones</label>
+    <textarea [(ngModel)]="form.observaciones" name="observaciones"></textarea>
+
+    <label>ID Solicitud</label>
+    <input type="number" [(ngModel)]="form.id_solicitud" name="id_solicitud">
+
+    <button type="submit">Guardar</button>
+
+  </form>
+</div>
